@@ -26,6 +26,7 @@
 - But everytime i change something on workatation master every time run this cmd on node - chef-clinet t
   his is very Lengthy process i want to automate - go on this location on node - vi /etc/crontab this is scheduling file
 
+- This is called a crontab expression or cron schedule expression.
   Minute    Hour    Day    Month    Day of the Week
   *        *       *      *        *
 
