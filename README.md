@@ -16,7 +16,7 @@
   - mkdir cookbooks
   - cd cookbooks
   
-  - chef generate cookbooks test-cookbooks
+  - chef generate cookbook test-cookbook
   - chef generate recipe test-recipe
   - sudo vi test-cookbook/recipes/test-recipe.rb
   - use this code and save -
