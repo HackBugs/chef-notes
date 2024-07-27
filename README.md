@@ -16,8 +16,9 @@
 - send the node-key.pem on workstaion master chef folder /chef-repo
 - cmd - knife bootstrap 172.78.89.324 --ssh-user ec2-user --sudo -i node-key.pem node1
 - knife node list
-- we everything manage form chef-repo file also cookbooks already created in chef-repo file we don't need to create cookbooks in other folder
 
+- Workstation - chef server - node = Hierarchy of connection
+- we everything manage form chef-repo file also cookbooks already created in chef-repo file we don't need to create cookbooks in other folder
 - 🔵 If yuu want to run recipe on node use this cmd - knife node run_list set node1 "recipe[apache-cookbook::apache-recipe]"
 - cmd - knife node show node1
 ```
