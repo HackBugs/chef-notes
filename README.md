@@ -25,11 +25,10 @@
 - When you change anything in recipe on workstation maste on node run this cmd - chef-client
 - But everytime i change something on workatation master every time run this cmd on node - chef-clinet t
   his is very Lengthy process i want to automate - go on this location on node - vi /etc/crontab this is scheduling file
-```sh
+
 Minute    Hour    Day    Month    Day of the Week
 *        *       *      *        *
-```
-```
+
 - upload file on chef server form workstation master cmd - knife cookbook upload apcahe-cookbook
 ```
 ------------------------------------------------------------------------------
