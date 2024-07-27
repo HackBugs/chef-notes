@@ -67,6 +67,11 @@ end
 ```
 
 4. Installing apache recipe the `httpd` package, creating an index.html file, and enabling and starting the `httpd` service:
+  - chef generate cookbook apache-cookbook
+  - chef generate recipe apache-recipe
+  - sudo vi test-cookbook/recipes/apache-recipe.rb // paste this code
+  - chef exec ruby -c apache-cookbook/recipes/apache-recipe.rb
+  - chef-client -zr "recipe[apache-cookbook::apache-recipe]"
 
 ```ruby
 package 'httpd' do
