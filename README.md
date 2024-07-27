@@ -535,4 +535,55 @@ kitchen verify
 kitchen destroy
 ```
 
-These commands cover a wide range of tasks you'll perform with Chef, from setting up your environment to managing cookbooks, nodes, and policies.
+- These commands cover a wide range of tasks you'll perform with Chef, from setting up your environment to managing cookbooks, nodes, and policies.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+To create the directory structure for the `test-cookbook` as specified, you can use the following commands on your terminal:
+
+```sh
+# Create the directory structure
+mkdir -p test-cookbook/{recipes,spec/unit/recipes,test/integration/default}
+
+# Create the files
+touch test-cookbook/{CHANGELOG.md,LICENSE,Policyfile.rb,README.md,chefignore,kitchen.yml,metadata.rb}
+touch test-cookbook/recipes/{default.rb,test-recipe.rb}
+touch test-cookbook/spec/{spec_helper.rb,unit/recipes/{default_spec.rb,test-recipe_spec.rb}}
+touch test-cookbook/test/integration/default/{default_test.rb,test-recipe_test.rb}
+
+# List the directory structure
+tree test-cookbook
+```
+
+Explanation of each command:
+- `mkdir -p`: Creates the directory structure.
+- `touch`: Creates the files within the directories.
+- `tree test-cookbook`: (Optional) Lists the directory structure to verify it has been created correctly.
+
+Here's a breakdown of the directory structure:
+
+```plaintext
+test-cookbook/
+├── CHANGELOG.md
+├── LICENSE
+├── Policyfile.rb
+├── README.md
+├── chefignore
+├── kitchen.yml
+├── metadata.rb
+├── recipes
+│   ├── default.rb
+│   └── test-recipe.rb
+├── spec
+│   ├── spec_helper.rb
+│   └── unit
+│       └── recipes
+│           ├── default_spec.rb
+│           └── test-recipe_spec.rb
+└── test
+    └── integration
+        └── default
+            ├── default_test.rb
+            └── test-recipe_test.rb
+```
+
+This will create the required directory structure for your Chef cookbook named `test-cookbook`.
