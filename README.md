@@ -592,4 +592,102 @@ test-cookbook/
             └── test-recipe_test.rb
 ```
 
-This will create the required directory structure for your Chef cookbook named `test-cookbook`.
+- This will create the required directory structure for your Chef cookbook named `test-cookbook`.
+--------------------------------------------------------------------------------------------------
+In Chef, attributes are a way to provide configuration data to cookbooks and recipes. They can be used to define and override configuration settings for various resources. Here’s a detailed look at the types of attributes in Chef, along with their usage:
+
+### Types of Attributes in Chef
+
+1. **Default Attributes**:
+   - These are the most commonly used attributes.
+   - They are overridden by other attributes such as `normal`, `override`, and `automatic`.
+
+2. **Normal Attributes**:
+   - Attributes set at the node level and have a higher precedence than `default` attributes but lower than `override` attributes.
+
+3. **Override Attributes**:
+   - Attributes that override `default` and `normal` attributes.
+   - They have the highest precedence, except for `automatic` attributes.
+
+4. **Automatic Attributes**:
+   - Attributes set by Chef or the system itself, such as node’s IP address or hostname.
+   - These attributes are read-only and have the highest precedence in Chef’s attribute hierarchy.
+
+5. **Force Override Attributes**:
+   - Attributes that override all other types of attributes, including `override` attributes.
+
+### Attribute Precedence Order
+
+1. **Automatic Attributes**: Set by the system and Chef.
+2. **Force Override Attributes**: Highest precedence, overrides everything.
+3. **Override Attributes**: Overrides `default` and `normal` attributes.
+4. **Normal Attributes**: Set by the user or node.
+5. **Default Attributes**: The lowest precedence.
+
+### Code Examples
+
+Here’s how you can define and use these attributes in Chef:
+
+#### Default Attribute
+```ruby
+# In a cookbook's attributes/default.rb file
+default['my_cookbook']['package_name'] = 'httpd'
+```
+
+#### Normal Attribute
+```ruby
+# In a cookbook's attributes/normal.rb file
+normal['my_cookbook']['package_name'] = 'nginx'
+```
+
+#### Override Attribute
+```ruby
+# In a cookbook's attributes/override.rb file
+override['my_cookbook']['package_name'] = 'apache2'
+```
+
+#### Automatic Attribute
+```ruby
+# Automatic attributes are typically read-only, for example:
+node['ipaddress']
+node['hostname']
+```
+
+#### Force Override Attribute
+```ruby
+# Force override attributes are set within the recipe
+node.default['my_cookbook']['package_name'] = 'apache2'
+node.override['my_cookbook']['package_name'] = 'nginx'
+```
+
+### Usage in Recipes
+
+```ruby
+# In a cookbook's recipes/default.rb file
+package node['my_cookbook']['package_name'] do
+  action :install
+end
+
+service 'httpd' do
+  action [:enable, :start]
+end
+
+file '/var/www/html/index.html' do
+  content "<html><body><h1>Apache installed</h1></body></html>"
+  action :create
+end
+```
+
+### Summary
+
+Here’s a summary of the attributes:
+
+| **Attribute Type** | **Precedence** | **Code Example**                             |
+|--------------------|----------------|----------------------------------------------|
+| Default            | Low            | `default['my_cookbook']['package_name'] = 'httpd'` |
+| Normal             | Medium         | `normal['my_cookbook']['package_name'] = 'nginx'` |
+| Override           | High           | `override['my_cookbook']['package_name'] = 'apache2'` |
+| Automatic          | Highest        | `node['ipaddress']`                          |
+| Force Override     | Highest        | `node.override['my_cookbook']['package_name'] = 'nginx'` |
+
+Each type of attribute has a specific role and precedence in Chef, allowing you to manage configurations effectively.
