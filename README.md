@@ -2,6 +2,7 @@
 
 - **`yum`**: Used for package management in Red Hat-based distributions like CentOS, Fedora, and Amazon Linux.
 - **`apt-get`**: Used for package management in Debian-based distributions like Ubuntu and Debian.
+- ** On vi editor if getting error than use this cmd -  `rm filename.py.swp` means you need to delete `.swp` file
 
 - Create EC2
   - Connect local machine with SSH Key
