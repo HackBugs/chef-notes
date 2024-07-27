@@ -14,7 +14,7 @@
 - ip-address ssh-user ec2-user
 - Workstation master chef and node is whare we want to install all configration file we called
 - send the node-key.pem on workstaion master chef folder /chef-repo
-- cmd - knife bootstrap 172.78.89.324 --ssh-user ec2-user --sudo -i node-key.pem node1
+- cmd connect node write on workstation master - knife bootstrap "private if of node 172.78.89.324" --ssh-user ec2-user --sudo -i node-key.pem node1
 - knife node list
 
 - Workstation - chef server - node = Hierarchy of connection
