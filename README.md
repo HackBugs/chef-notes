@@ -22,6 +22,8 @@
 - 🔵 If yuu want to run recipe on node use this cmd - knife node run_list set node1 "recipe[apache-cookbook::apache-recipe]"
 - cmd - knife node show node1
 - if you done this - Workstation - chef server - node than use this cmd - chef-client not chef-client -zr
+
+- upload file on chef server form workstation master cmd - knife cookbook upload apcahe-cookbook
 ```
 ------------------------------------------------------------------------------
   
