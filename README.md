@@ -15,10 +15,23 @@
   - chef -v 
   - mkdir cookbooks
   - cd cookbooks
+  
   - chef generate cookbooks test-cookbooks
   - chef generate recipe test-recipe
+  - sudo vi test-cookbook/recipes/test-recipe.rb
+  - use this code and save -
+  - Tha use this cmd - chef exec ruby -c // and this cmd - chef exec ruby -c vi test-cookbook/recipes/test-recipe.rb
+  - chef-client -zr "recipe[test-cookbook::test-recipe]"
+  - 
+```ruby
+file '/myfile2' do
+  content 'This is My Second Project code'
+  action :create
+  owner 'root'
+  group 'root'
+end
+```
   - yum install tree -y
-
   - after installing yum install download link and you unable to see chef -v use this cmd
   - sudo yum install libxcrypt-compat -y
 
