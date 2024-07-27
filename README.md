@@ -4,22 +4,25 @@
 - **`apt-get`**: Used for package management in Debian-based distributions like Ubuntu and Debian.
 
 - Create EC2
-- Connect local machine with SSH Key
-- Downlaod chef from offical website and cancel download copy the link of download file
-- use the EC2 terminal local computer use cmd - wget paste here downlaod link
-- chef will download in your downlaod now you install of shef
-- cmd - yum install download file name
+  - Connect local machine with SSH Key
+  - Downlaod chef from offical website and cancel download copy the link of download file
+  - use the EC2 terminal local computer use cmd - wget paste here downlaod link
+  - chef will download in your downlaod now you install of shef
+  - cmd - yum install download file name
 
-- cmd
-- which chef 
-- chef -v 
-- mkdir cookbooks
-- cd cookbooks
-- chef generate cookbooks test-cookbooks
-- yum install tree -y
+  - cmd
+  - which chef 
+  - chef -v 
+  - mkdir cookbooks
+  - cd cookbooks
+  - chef generate cookbooks test-cookbooks
+  - chef generate recipe test-recipe
+  - yum install tree -y
 
-- after installing yum install download link and you unable to see chef -v use this cmd
-- sudo yum install libxcrypt-compat -y
+  - after installing yum install download link and you unable to see chef -v use this cmd
+  - sudo yum install libxcrypt-compat -y
+  - 
+-----------------------------------------------------------------------------------------------------------------------------
 
 ### Steps to connect to your EC2 instance, download and install Chef, and set up a basic Chef cookbook.
 
