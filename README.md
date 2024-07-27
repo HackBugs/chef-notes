@@ -18,7 +18,7 @@
 - knife node list
 - we everything manage form chef-repo file also cookbooks already created in chef-repo file we don't need to create cookbooks in other folder
 
-- :🟢want to run recipe on node use this cmd - knife node run_list set node1 "recipe[apache-cookbook::apache-recipe]"
+- 🔵 If yuu want to run recipe on node use this cmd - knife node run_list set node1 "recipe[apache-cookbook::apache-recipe]"
 ```
 ------------------------------------------------------------------------------
   
