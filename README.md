@@ -2,7 +2,7 @@
 
 - **Download workstation- https://docs.chef.io/workstation/install_workstation/**
 - **Chef Server - https://api.chef.io/organizations/codebugs/getting_started**
-- **Download - Download Starter Kit**
+- **Download - Starter Kit from chef server**
 ------------------------------------------------------------------------------
   
 - **`yum`**: Used for package management in Red Hat-based distributions like CentOS, Fedora, and Amazon Linux.
