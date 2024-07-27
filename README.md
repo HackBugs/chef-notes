@@ -1,8 +1,10 @@
 # chef-note
-
+```sh
 - **Download workstation- https://docs.chef.io/workstation/install_workstation/**
 - **Chef Server - https://api.chef.io/organizations/codebugs/getting_started**
 - **Download - Starter Kit from chef server**
+- Download Starter Kit and transfar downloded file on EC2 with help of scp cmd or winscp or MobaXterm
+```
 ------------------------------------------------------------------------------
   
 - **`yum`**: Used for package management in Red Hat-based distributions like CentOS, Fedora, and Amazon Linux.
