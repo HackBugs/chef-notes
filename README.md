@@ -30,6 +30,8 @@
   Minute    Hour    Day    Month    Day of the Week
   *        *       *      *        *
 
+  * * * * * root chef-client
+
 - upload file on chef server form workstation master cmd - knife cookbook upload apcahe-cookbook
 ```
 ------------------------------------------------------------------------------
