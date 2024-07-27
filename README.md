@@ -73,7 +73,7 @@ package 'httpd' do
 end
 
 file '/var/www/html/index.html' do
-  content 'Welcome to Technical Guftgu'
+  content 'Welcome to HackBugs'
   action :create
 end
 
