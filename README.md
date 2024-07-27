@@ -21,7 +21,64 @@
 
   - after installing yum install download link and you unable to see chef -v use this cmd
   - sudo yum install libxcrypt-compat -y
-  - 
+
+### The code snippets you provided are examples of Chef recipes, which are written in Ruby and used to define the desired state of your infrastructure. Here are the provided snippets formatted correctly:
+### Use this code with tree cmd view tree strcture of directries use this code inside youe test-recipe.rb file
+1. Creating a file with specific content:
+
+```ruby
+file '/myfile' do
+  content 'Welcome to HackBugs'
+  action :create
+end
+```
+
+2. Installing the `tree` package:
+
+```ruby
+package 'tree' do
+  action :install
+end
+```
+
+3. Creating another file with specific content and setting its owner and group to 'root':
+
+```ruby
+file '/myfile2' do
+  content 'This is My Second Project code'
+  action :create
+  owner 'root'
+  group 'root'
+end
+```
+
+4. Installing the `httpd` package, creating an index.html file, and enabling and starting the `httpd` service:
+
+```ruby
+package 'httpd' do
+  action :install
+end
+
+file '/var/www/html/index.html' do
+  content 'Welcome to Technical Guftgu'
+  action :create
+end
+
+service 'httpd' do
+  action [:enable, :start]
+end
+```
+
+### Summary of Commands
+1. **file** resource:
+    - Creates files with specific content.
+    - Can set ownership and permissions.
+2. **package** resource:
+    - Installs specified packages.
+3. **service** resource:
+    - Manages services, allowing you to enable, start, stop, or restart them.
+
+These snippets can be part of your Chef cookbook, automating the setup and configuration of your server infrastructure.
 -----------------------------------------------------------------------------------------------------------------------------
 
 ### Steps to connect to your EC2 instance, download and install Chef, and set up a basic Chef cookbook.
