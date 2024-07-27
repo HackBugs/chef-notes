@@ -13,6 +13,7 @@
 - kinfe bootstrap
 - ip-address ssh-user ec2-user
 - Workstation master chef and node is whare we want to install all configration file we called
+- send the node.key on workstaion master chef folder /chef-repo
 ```
 ------------------------------------------------------------------------------
   
