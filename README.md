@@ -1,7 +1,7 @@
 # chef-note
 
-- Download workstation- https://docs.chef.io/workstation/install_workstation/
-- https://api.chef.io/organizations/codebugs/getting_started
+## Download workstation- https://docs.chef.io/workstation/install_workstation/
+## https://api.chef.io/organizations/codebugs/getting_started
 
   
 - **`yum`**: Used for package management in Red Hat-based distributions like CentOS, Fedora, and Amazon Linux.
