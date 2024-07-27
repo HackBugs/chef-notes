@@ -1,9 +1,16 @@
 # chef-note
 ```sh
-- **Download workstation- https://docs.chef.io/workstation/install_workstation/**
-- **Chef Server - https://api.chef.io/organizations/codebugs/getting_started**
-- **Download - Starter Kit from chef server**
-- Download Starter Kit and transfar downloded file on EC2 with help of scp cmd or winscp or MobaXterm
+- Download workstation- https://docs.chef.io/workstation/install_workstation/
+- Chef Server - https://api.chef.io/organizations/codebugs/getting_started
+- Download - Starter Kit name is - "chef-repo" from chef server
+- Download Starter Kit - "chef-repo" and transfar downloded file on EC2 with help of scp cmd or winscp or MobaXterm
+- unzip of file - "chef-repo"
+- cd "chef-repo"
+- ls -a
+- cd .chef
+- cat config.rb - This is knife file
+- cmd - knife ssl check
+
 ```
 ------------------------------------------------------------------------------
   
