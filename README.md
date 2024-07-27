@@ -785,4 +785,114 @@ If you need to add custom attributes to Ohai, you can write custom plugins. For 
 2. **Place in Custom Directory**: Save this script in the `/etc/chef/ohai/plugins` directory on your nodes.
 
 3. **Reload Ohai**: Restart the Chef client to load the new plugin and collect the data.
+---------------------------------------------------------------------------------------------
+## Multiple recipes run of contain one recipes and mutiple recipe run of defferent of cookbooks
+To run multiple recipes from different cookbooks in Chef using a single `chef-client` command, you can follow these steps:
+
+### Step-by-Step Guide
+
+1. **Define Recipes in Your Cookbooks**
+
+   Ensure that you have the recipes you want to run defined in your cookbooks. For example:
+
+   **Cookbook A (`apache-cookbook`)**
+
+   ```ruby
+   # apache-cookbook/recipes/apache-recipe.rb
+   package 'httpd' do
+     action :install
+   end
+
+   service 'httpd' do
+     action [:enable, :start]
+   end
+   ```
+
+   **Cookbook B (`mysql-cookbook`)**
+
+   ```ruby
+   # mysql-cookbook/recipes/mysql-recipe.rb
+   package 'mysql-server' do
+     action :install
+   end
+
+   service 'mysqld' do
+     action [:enable, :start]
+   end
+   ```
+
+2. **Include Recipes in `default.rb`**
+
+   In the `default.rb` recipe of your main cookbook or an entry cookbook, include the recipes from the other cookbooks:
+
+   **Main Cookbook (`my-cookbook`)**
+
+   ```ruby
+   # my-cookbook/recipes/default.rb
+   include_recipe 'apache-cookbook::apache-recipe'
+   include_recipe 'mysql-cookbook::mysql-recipe'
+   ```
+
+3. **Run Chef Client in Local Mode**
+
+   Use the `chef-client` command to run the recipes locally. The `-z` flag indicates that Chef should run in local mode (without needing a Chef server). The `-r` flag specifies the run list.
+
+   ```bash
+   chef-client -z -r 'recipe[my-cookbook::default]'
+   ```
+
+   This command runs the `default` recipe from `my-cookbook`, which in turn includes the recipes from `apache-cookbook` and `mysql-cookbook`.
+
+### Example
+
+Here's a complete example:
+
+1. **Define Recipes**
+
+   **`apache-cookbook/recipes/apache-recipe.rb`**
+
+   ```ruby
+   package 'httpd' do
+     action :install
+   end
+
+   service 'httpd' do
+     action [:enable, :start]
+   end
+   ```
+
+   **`mysql-cookbook/recipes/mysql-recipe.rb`**
+
+   ```ruby
+   package 'mysql-server' do
+     action :install
+   end
+
+   service 'mysqld' do
+     action [:enable, :start]
+   end
+   ```
+
+   **`my-cookbook/recipes/default.rb`**
+
+   ```ruby
+   include_recipe 'apache-cookbook::apache-recipe'
+   include_recipe 'mysql-cookbook::mysql-recipe'
+   ```
+
+2. **Run Chef Client**
+
+   Navigate to the directory where your cookbooks are located, and execute:
+
+   ```bash
+   chef-client -z -r 'recipe[my-cookbook::default]'
+   ```
+
+### Notes
+
+- Ensure that all cookbooks are correctly placed in the Chef client’s cookbook path or a cookbook path specified by the `-o` flag.
+- The `-z` flag is used for running Chef in local mode, suitable for testing and development.
+- For production environments, you would typically use a Chef server to manage and run your cookbooks.
+
+This setup will allow you to run multiple recipes from different cookbooks in a single Chef client run, using the `-r` flag to specify the run list.
 
