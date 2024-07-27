@@ -731,4 +731,58 @@ Here’s a summary of the attributes:
 | Automatic          | Highest        | `node['ipaddress']`                          |
 | Force Override     | Highest        | `node.override['my_cookbook']['package_name'] = 'nginx'` |
 
-Each type of attribute has a specific role and precedence in Chef, allowing you to manage configurations effectively.
+- Each type of attribute has a specific role and precedence in Chef, allowing you to manage configurations effectively.
+- --------------------------------------------------------------------------------------------------------------------------
+## ohai Command 
+Ohai is a component of Chef that collects system information about the node it's running on and makes this information available as node attributes. It’s part of the Chef client and is used to gather details about the system during the node's convergence.
+
+### Key Points About Ohai:
+
+1. **Function**: Ohai is used to collect data about the system's hardware, operating system, network configuration, and other relevant information.
+
+2. **Attributes**: The information collected by Ohai is stored in node attributes, which can be accessed in Chef recipes to configure the system based on its current state.
+
+3. **Plugins**: Ohai uses plugins to gather specific types of information. For example, there are plugins for collecting information about network interfaces, disk usage, CPU details, and more.
+
+4. **Customization**: You can customize or extend Ohai by adding your own plugins if you need to collect additional information.
+
+5. **Data Availability**: The data collected by Ohai is available throughout the Chef run. You can access it using the `node` object in your recipes.
+
+### Example Usage in a Chef Recipe
+
+Here’s an example of how you might use Ohai attributes in a Chef recipe:
+
+```ruby
+file '/basicinfo' do
+  content <<-EOH
+    System Information
+    ------------------
+    HOSTNAME: #{node['fqdn']}
+    IPADDRESS: #{node['ipaddress']}
+    CPU: #{node['cpu']['0']['mhz']}
+    MEMORY: #{node['memory']['total']}
+    OS: #{node['platform']} #{node['platform_version']}
+  EOH
+  owner 'root'
+  group 'root'
+  action :create
+end
+```
+
+In this example:
+- `node['fqdn']`: Fully qualified domain name of the node.
+- `node['ipaddress']`: IP address of the node.
+- `node['cpu']['0']['mhz']`: Clock speed of the first CPU.
+- `node['memory']['total']`: Total amount of memory.
+- `node['platform']` and `node['platform_version']`: The OS platform and version.
+
+### Custom Plugins
+
+If you need to add custom attributes to Ohai, you can write custom plugins. For instance:
+
+1. **Create a Plugin**: Write a Ruby script that gathers the data you need.
+
+2. **Place in Custom Directory**: Save this script in the `/etc/chef/ohai/plugins` directory on your nodes.
+
+3. **Reload Ohai**: Restart the Chef client to load the new plugin and collect the data.
+
