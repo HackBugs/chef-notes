@@ -65,7 +65,7 @@ file '/myfile2' do
 end
 ```
 
-4. Installing the `httpd` package, creating an index.html file, and enabling and starting the `httpd` service:
+4. Installing apache recipe the `httpd` package, creating an index.html file, and enabling and starting the `httpd` service:
 
 ```ruby
 package 'httpd' do
