@@ -10,7 +10,9 @@
 - cd .chef
 - cat config.rb - This is knife file
 - cmd - knife ssl check
-
+- kinfe bootstrap
+- ip-address ssh-user ec2-user
+- Workstation master chef and node is whare we want to install all configration file we called
 ```
 ------------------------------------------------------------------------------
   
