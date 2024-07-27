@@ -99,7 +99,7 @@ end
 
 These snippets can be part of your Chef cookbook, automating the setup and configuration of your server infrastructure.
 
-Your Chef resource definition for creating a file with specific attributes looks great! This resource will create a file at `/basicinfo` and populate it with information gathered from the node attributes.
+- Your Chef resource definition for creating a file with specific attributes looks great! This resource will create a file at `/basicinfo` and populate it with information gathered from the node attributes.
 
 Here is your code with some minor adjustments and comments for clarity:
 
